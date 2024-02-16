@@ -13,7 +13,8 @@ const PersonalPlaylist = () => {
       <Row>
         <Col className="text-white">
           <h6>
-            <i className="bi bi-music-note-beamed"></i> Personal Playlist:
+            <i className="bi bi-music-note-beamed text-warning"></i> Personal
+            Playlist:
           </h6>
           <ul className="text-white list-unstyled">
             {playlistSong.length === 0 && <li>Add something now...</li>}
