@@ -8,6 +8,9 @@ export const GET_SONGS2 = "GET_SONGS2";
 export const GET_SONGS3 = "GET_SONGS3";
 export const ADD_TO_PLAYLIST = "ADD_TO_PLAYLIST";
 export const REMOVE_FROM_PLAYLIST = "REMOVE_FROM_PLAYLIST";
+export const IS_LOADING1 = "IS_LOADING1";
+export const IS_LOADING2 = "IS_LOADING2";
+export const IS_LOADING3 = "IS_LOADING3";
 
 // ACTION CREATORS --------------------------------------------------------------------------------------------------------
 // Per la rimozione degli elementi da un array solitamente si utilizza l'indice dell'elemento come parametro
@@ -37,7 +40,7 @@ export const actionRemoveFromPlaylist = (songToRemove) => ({
   payload: songToRemove,
 });
 
-export const getSongs = (artistName, action) => {
+export const getSongs = (artistName, action, actionLoading) => {
   return async (dispatch) => {
     try {
       const response = await fetch(
@@ -56,6 +59,10 @@ export const getSongs = (artistName, action) => {
       }
     } catch (error) {
       console.log(error);
+    } finally {
+      dispatch({
+        type: actionLoading,
+      });
     }
   };
 };

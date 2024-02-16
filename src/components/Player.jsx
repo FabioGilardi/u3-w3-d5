@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 const Player = () => {
   const activeSong = useSelector((state) => state.playing.activeSong);
 
-  console.log(activeSong);
+  // console.log(activeSong);
 
   return (
     <Container fluid className="fixed-bottom bg-container pt-1">
