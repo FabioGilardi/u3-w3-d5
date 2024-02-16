@@ -12,7 +12,9 @@ const PersonalPlaylist = () => {
     <Container fluid>
       <Row>
         <Col className="text-white">
-          <h6>Personal Playlist:</h6>
+          <h6>
+            <i className="bi bi-music-note-beamed"></i> Personal Playlist:
+          </h6>
           <ul className="text-white list-unstyled">
             {playlistSong.length === 0 && <li>Add something now...</li>}
             {playlistSong.length !== 0 &&
