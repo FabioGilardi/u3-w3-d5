@@ -1,6 +1,6 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   actionAddToFavourite,
@@ -11,39 +11,41 @@ import {
 } from "../redux/actions";
 
 // L'onCLick è stato messo sull' img in modo da non interferire con il click per aggiungere ai preferiti
+// HO LASCIATO COMMENTATO LA FETCH ORIGINALE FATTA IN "LOCALE" NEL CASO VOLESSI DARGLI UN OCCHIATA
 
 // eslint-disable-next-line react/prop-types
-const MusicRow = ({ title, artistName, setId }) => {
-  const [songs, setSongs] = useState([]);
+const MusicRow = ({ title, setId, fetchReference }) => {
+  // const [songs, setSongs] = useState([]);
 
   const dispatch = useDispatch();
 
   const favouriteSongs = useSelector((state) => state.favourite.likedSongs);
   const playlistSong = useSelector((state) => state.playlist.playlistSong);
+  const songs = useSelector((state) => state.fetch[fetchReference]);
 
-  const getSongs = async () => {
-    try {
-      const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/deezer/search?q=" +
-          artistName
-      );
-      if (response.ok) {
-        const data = await response.json();
-        const newData = data.data.slice(0, 4);
-        console.log(newData);
-        setSongs(newData);
-      } else {
-        throw new Error();
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getSongs = async () => {
+  //   try {
+  //     const response = await fetch(
+  //       "https://striveschool-api.herokuapp.com/api/deezer/search?q=" +
+  //         artistName
+  //     );
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       const newData = data.data.slice(0, 4);
+  //       console.log(newData);
+  //       setSongs(newData);
+  //     } else {
+  //       throw new Error();
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    getSongs();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   getSongs();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   //   AGGIORNA IL LOCAL STORAGE AD OGNI AGGIUNTA DI UN LIKE ALLE CANZONI (O DISLIKE)
   useEffect(() => {

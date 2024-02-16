@@ -19,9 +19,6 @@ const Player = () => {
         <Col lg={10} className="offset-lg-2">
           <Row className="h-100 flex-column justify-content-center align-items-center">
             <Col xs={6} md={4} className="playerControls">
-              {/* <div className="text-white text-center">
-                <p></p>
-              </div> */}
               {activeSong !== null && (
                 <>
                   <p className="mb-0 mx-auto text-center text-white fs-6">

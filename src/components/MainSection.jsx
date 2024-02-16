@@ -29,17 +29,17 @@ const MainSection = () => {
       <MusicRow
         title="Rock Classics"
         artistName="queen"
-        // fetchReference="getSongs1"
+        fetchReference="getSongs1"
       />
       <MusicRow
         title="Pop Culture"
         artistName="katyperry"
-        // fetchReference="getSongs2"
+        fetchReference="getSongs2"
       />
       <MusicRow
         title="#HipHop"
         artistName="eminem"
-        // fetchReference="getSongs3"
+        fetchReference="getSongs3"
         setId="hiphopSection"
       />
     </Col>
